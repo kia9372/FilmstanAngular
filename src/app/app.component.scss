@@ -1,0 +1,8 @@
+:host {
+	height: 100%;
+	margin: 0;
+}
+  /* datePicker */
+  ::ng-deep .dp-time-select-controls{
+    direction: ltr !important;
+  }

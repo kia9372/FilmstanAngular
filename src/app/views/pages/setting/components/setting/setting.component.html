@@ -1,0 +1,19 @@
+<div class="form-container">
+  <mat-tab-group dynamicHeight>
+    <mat-tab [label]="'SETTING.SMS_SETTING' | translate">
+      <ng-template matTabContent>
+        <fim-sms-setting></fim-sms-setting>
+      </ng-template>
+    </mat-tab>
+    <mat-tab [label]="'SETTING.EMAIL_SETTING' | translate">
+      <ng-template matTabContent>
+        <fim-email-setting></fim-email-setting>
+      </ng-template>
+    </mat-tab>
+    <mat-tab [label]="'SETTING.REGISTER_USER_SETTING' | translate">
+      <ng-template matTabContent>
+        <fim-register-user-setting></fim-register-user-setting>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

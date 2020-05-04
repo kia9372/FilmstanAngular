@@ -1,0 +1,35 @@
+<div class="login-form">
+  <div class="login-form-content">
+    <div class="log-form-logo">
+      <div class="logo"></div>
+    </div>
+    <label class="login-form-label">Login</label>
+    <div class="login-form-inputs">
+      <form [formGroup]="loginForm" (onSubmit)="submit()">
+        <mat-form-field appearance="outline">
+          <mat-label>Username*</mat-label>
+          <input formControlName="username" matInput placeholder="Username *" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password *</mat-label>
+          <input
+            formControlName="password"
+            type="password"
+            matInput
+            placeholder="Password *"
+          />
+        </mat-form-field>
+        <a [routerLink]="['/auth/requestActivation']">Send Activation Code</a>
+        <button
+          mat-raised-button
+          [disabled]="loginForm.invalid"
+          type="submit"
+          (click)="submit()"
+          color="primary"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

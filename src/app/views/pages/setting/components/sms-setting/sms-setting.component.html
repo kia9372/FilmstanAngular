@@ -1,0 +1,51 @@
+<div class="form-content">
+  <form class="form" id="financeSettingAddFormGroup" [formGroup]="smsSettingFg">
+    <mat-form-field appearance="outline">
+      <mat-label>{{
+        "SETTING.LINE_NUMBER" | translate
+      }}</mat-label>
+      <input
+        matInput
+        formControlName="lineNumber"
+        [placeholder]="'SETTING.LINE_NUMBER' | translate"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{
+        "SETTING.USER_API_KEY" | translate
+      }}</mat-label>
+
+      <input
+      type="password"
+        matInput
+        formControlName="userApikey"
+        [placeholder]="'SETTING.USER_API_KEY' | translate"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{
+        "SETTING.SECRET_KEY" | translate
+      }}</mat-label>
+
+      <input
+      type="password"
+        matInput
+        formControlName="secretKey"
+        [placeholder]="'SETTING.SECRET_KEY' | translate"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div class="form-footer">
+  <button
+    mat-raised-button
+    form="financeSettingAddFormGroup"
+    type="submit"
+    color="primary"
+    (click)="saveSetting()"
+  >
+    {{ "GENERAL.SAVE" | translate }}
+  </button>
+
+  <button mat-stroked-button>{{ "GENERAL.RESET" | translate }}</button>
+</div>

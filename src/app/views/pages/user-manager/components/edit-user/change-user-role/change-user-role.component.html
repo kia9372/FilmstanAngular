@@ -1,0 +1,26 @@
+<div class="form-content">
+  <form class="form" id="financeSettingAddFormGroup" [formGroup]="changeRoleFG">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "ROLE_MANAGER.NAME" | translate }}</mat-label>
+      <mat-select formControlName="roleId">
+        <mat-option *ngFor="let item of roles" [value]="item.id">
+          {{ item.name }}
+        </mat-option>
+      </mat-select>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+  </form>
+</div>
+<div class="form-footer">
+  <button
+    mat-raised-button
+    form="financeSettingAddFormGroup"
+    type="submit"
+    color="primary"
+    (click)="editRole()"
+  >
+    {{ "GENERAL.SAVE" | translate }}
+  </button>
+
+  <button mat-stroked-button>{{ "GENERAL.RESET" | translate }}</button>
+</div>

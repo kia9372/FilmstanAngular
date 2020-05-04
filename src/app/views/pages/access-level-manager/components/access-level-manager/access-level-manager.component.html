@@ -1,0 +1,13 @@
+<div class="form-container">
+  <div class="from-label">
+    <mat-label>{{ 'ACCESS_LEVEL_MANAGER.ACCESS_LEVEL_EDIT' | translate }}</mat-label>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <fim-role-tree
+      [data]="data"
+      (selectedList)="SelectedAccessRole($event)"
+    ></fim-role-tree>
+    <button mat-flat-button color="primary" (click)="setRole()">{{ 'GENERAL.SAVE' | translate }}</button>
+  </div>
+</div>

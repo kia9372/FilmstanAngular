@@ -1,0 +1,66 @@
+<div class="form-content">
+  <form
+    class="form"
+    id="financeSettingAddFormGroup"
+    [formGroup]="emailSettingFg"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "SETTING.FROM" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="from"
+        [placeholder]="'SETTING.FROM' | translate"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "SETTING.SMTP_SERVER" | translate }}</mat-label>
+
+      <input
+        matInput
+        formControlName="smtpServer"
+        [placeholder]="'SETTING.SMTP_SERVER' | translate"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "SETTING.PORT" | translate }}</mat-label>
+
+      <input
+        matInput
+        formControlName="port"
+        [placeholder]="'SETTING.PORT' | translate"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "SETTING.USERNAME" | translate }}</mat-label>
+
+      <input
+        matInput
+        formControlName="userName"
+        [placeholder]="'SETTING.USERNAME' | translate"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "SETTING.PASSWORD" | translate }}</mat-label>
+
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        [placeholder]="'SETTING.PASSWORD' | translate"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div class="form-footer">
+  <button
+    mat-raised-button
+    form="financeSettingAddFormGroup"
+    type="submit"
+    color="primary"
+    (click)="saveSetting()"
+  >
+    {{ "GENERAL.SAVE" | translate }}
+  </button>
+
+  <button mat-stroked-button>{{ "GENERAL.RESET" | translate }}</button>
+</div>

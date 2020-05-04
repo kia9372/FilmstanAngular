@@ -1,0 +1,76 @@
+<div class="form-content">
+  <form class="form" id="financeSettingAddFormGroup" [formGroup]="editUserFG">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "USER_MANAGER.NAME" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        placeholder="pat@example.com"
+        required
+      />
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "USER_MANAGER.FAMILY" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="family"
+        placeholder="pat@example.com"
+        required
+      />
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "USER_MANAGER.USER_NAME" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="username"
+        placeholder="pat@example.com"
+        required
+      />
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "USER_MANAGER.EMAIL" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="pat@example.com"
+        required
+      />
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <!--photo upload-->
+    <mat-form-field class="upload_file" appearance="outline">
+      <mat-icon matSuffix>image</mat-icon>
+      <mat-label>{{ "USER_MANAGER.IMAGE" | translate }}</mat-label>
+      <ngx-mat-file-input
+        formControlName="photo"
+      >
+      </ngx-mat-file-input>
+    </mat-form-field>
+
+    <!-- file upload progressbar -->
+    <ng-container *ngIf="queueProgress > 0">
+      <mat-progress-bar
+        mode="determinate"
+        [value]="queueProgress"
+      ></mat-progress-bar>
+      <span matSuffix> Uploading: {{ queueProgress }}% </span>
+    </ng-container>
+  </form>
+</div>
+<div class="form-footer">
+  <button
+    mat-raised-button
+    form="financeSettingAddFormGroup"
+    type="submit"
+    color="primary"
+    (click)="editUser()"
+  >
+    {{ "GENERAL.SAVE" | translate }}
+  </button>
+
+  <button mat-stroked-button>{{ "GENERAL.RESET" | translate }}</button>
+</div>

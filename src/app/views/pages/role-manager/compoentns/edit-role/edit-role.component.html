@@ -1,0 +1,31 @@
+<div class="form-container">
+  <div class="from-label">
+    <mat-label>{{ "ROLE_MANAGER.EDIT_ROLE" | translate }}</mat-label>
+  </div>
+  <div class="form-child">
+    <form [formGroup]="editRoleFG">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "ROLE_MANAGER.NAME" | translate }}</mat-label>
+        <input matInput formControlName="name" placeholder="pat@example.com" required />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "ROLE_MANAGER.DESCRIPTION" | translate }}</mat-label>
+        <input matInput formControlName="description" placeholder="pat@example.com" required />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+    </form>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="from-button-row">
+    <button (click)="editRole()" mat-flat-button color="primary">
+      {{ "GENERAL.SAVE" | translate }}
+    </button>
+    <button mat-stroked-button color="primary">
+      {{ "GENERAL.RESET" | translate }}
+    </button>
+    <button mat-stroked-button color="primary" [routerLink]="['/role-manager']">
+      {{ "GENERAL.BACK" | translate }}
+    </button>
+  </div>
+</div>

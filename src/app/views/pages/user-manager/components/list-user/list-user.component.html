@@ -1,0 +1,177 @@
+<div class="buttons">
+  <button
+    [routerLink]="['/role-manager/add']"
+    mat-raised-button
+    color="primary"
+  >
+    <mat-icon aria-hidden="false">add</mat-icon>
+    {{ "ROLE_MANAGER.ADD_NEW" | translate }}
+  </button>
+</div>
+
+<!-- <fim-role-list-f9+ilter [loading]="dataSource.loading$ | async"></fim-role-list-filter> -->
+
+<div class="table-container">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    multiTemplateDataRows
+    matSort
+    (matSortChange)="sortData($event)"
+    class="mat-elevation-z8 child"
+  >
+    <ng-container
+      matColumnDef="{{ column }}"
+      *ngFor="let column of columnsToDisplay"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "USER_MANAGER." + column.toLocaleUpperCase() | translate }}
+      </th>
+      <!-- <td mat-cell *matCellDef="let element">{{ element[column] }}</td> -->
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="CheckBoolean(element[column])">
+          <fim-check-box [value]="element[column]"></fim-check-box>
+        </span>
+        <span *ngIf="!CheckBoolean(element[column])">
+          {{ element[column] }}
+        </span>
+        <ng-container>
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "GENERAL.ACTIONS" | translate }}
+          </th>
+          <span *ngIf="column === 'actions'">
+            <a
+              mat-icon-button
+              [matTooltip]="'TOOLTIP.EDIT' | translate"
+              color="primary"
+              [routerLink]="['/user-manager/', element.id, 'edit']"
+            >
+              <mat-icon aria-label="Edit">edit</mat-icon>
+            </a>
+            <button
+              mat-icon-button
+              [matTooltip]="'TOOLTIP.DELETE' | translate"
+              color="accent"
+              (click)="delete(element.id)"
+            >
+              <mat-icon aria-label="Delete">delete</mat-icon>
+            </button>
+          </span>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td
+        mat-cell
+        *matCellDef="let element"
+        [attr.colspan]="columnsToDisplay.length"
+      >
+        <div
+          class="example-element-detail"
+          [@detailExpand]="
+            element == expandedElement ? 'expanded' : 'collapsed'
+          "
+        >
+          <div class="row-detail">
+            <div class="left-row">
+              <strong class="row-label">
+                {{ "USER_MANAGER.NAME" | translate }} :
+              </strong>
+              <label>{{ element.userInfos.name }}</label>
+            </div>
+            <div class="left-row">
+              <strong class="row-label">
+                {{ "USER_MANAGER.FAMILY" | translate }} :
+              </strong>
+              <label>{{ element.userInfos.family }}</label>
+            </div>
+            <div class="left-row">
+              <strong class="row-label">
+                {{ "USER_MANAGER.EMAIL" | translate }} :
+              </strong>
+              <label>{{ element.userInfos.email }}</label>
+            </div>
+            <div class="left-row">
+              <strong class="row-label">
+                {{ "USER_MANAGER.PHONE_NUMBER" | translate }} :
+              </strong>
+              <label>{{ element.userInfos.phoneNumber }}</label>
+            </div>
+            <div *ngIf="element.userInfos.isLockedEnd" class="left-row">
+              <strong class="row-label">
+                {{ "USER_MANAGER.LOCKED_END" | translate }} :
+              </strong>
+              <kt-date-time-format
+                [date]="element.userInfos.lockedEnd"
+              ></kt-date-time-format>
+            </div>
+            <div class="left-row">
+              <strong class="row-label">
+                {{ "USER_MANAGER.ROLE_NAME" | translate }} :
+              </strong>
+              <label>{{ element.userInfos.roleName }}</label>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="action-row">
+              <div class="action-row-item">
+                <mat-slide-toggle [checked]="element.isActive" (click)="changeUserStatus(element.id)"
+                >{{ "USER_MANAGER.CHANGE_ACTIVATION_STATUS" | translate }}
+              </mat-slide-toggle>
+              </div>
+            </div>
+            <div class="action-row">
+              <div class="action-row-item">
+                <mat-slide-toggle [checked]="element.confirmEmail" (click)="changeUserEmailStatus(element.id)"
+                >{{ "USER_MANAGER.CHANGE_EMAIL_STATUS" | translate }}
+              </mat-slide-toggle>
+              </div>
+            </div>
+            <div class="action-row">
+              <div class="action-row-item">
+                <mat-slide-toggle [checked]="element.isLockedEnd"  (click)="changeUserLockedEndlStatus(element.id)"
+                >{{ "USER_MANAGER.CHANGE_LOCKEND_STATUS" | translate }}
+              </mat-slide-toggle>
+              </div>
+            </div>
+            <div class="action-row">
+              <div class="action-row-item">
+                <mat-slide-toggle [checked]="element.confirmPhoneNumber" (click)="changeUserPhoneNumberlStatus(element.id)"
+                >{{ "USER_MANAGER.CHANGE_PHONE_NUMBER_STATUS" | translate }}
+              </mat-slide-toggle>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <!-- actions -->
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr
+      mat-row
+      *matRowDef="let element; columns: columnsToDisplay"
+      [ngClass]="{ highlightDelete: element.deletedDate !== null }"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element"
+    ></tr>
+
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['expandedDetail']"
+      class="example-detail-row"
+    ></tr>
+  </table>
+  <mat-progress-bar
+    *ngIf="dataSource.loading$ | async"
+    mode="indeterminate"
+  ></mat-progress-bar>
+  <mat-paginator
+    [length]="dataSource.length$ | async"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

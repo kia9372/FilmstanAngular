@@ -1,0 +1,25 @@
+<div class="form-content">
+  <form class="form" id="financeSettingAddFormGroup" [formGroup]="editPhoneNuberFG">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "USER_MANAGER.PHONE_NUMBER" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="phoneNumber"
+        [placeholder]="'USER_MANAGER.PHONE_NUMBER' | translate"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div class="form-footer">
+  <button
+    mat-raised-button
+    form="financeSettingAddFormGroup"
+    type="submit"
+    color="primary"
+    (click)="editPhonenumberUser()"
+  >
+    {{ "GENERAL.SAVE" | translate }}
+  </button>
+
+  <button mat-stroked-button>{{ "GENERAL.RESET" | translate }}</button>
+</div>

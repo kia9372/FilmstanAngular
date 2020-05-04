@@ -1,0 +1,59 @@
+// import login css
+@import "../../../../assets/css/demo1/pages/login/login-1.css";
+
+kt-auth,
+.kt-login {
+    height: 100%;
+
+    .mat-form-field {
+        width: 100%;
+    }
+
+    // add extra right padding when displaying spinner in button
+    .kt-spinner {
+        //	padding-right: 3rem !important;
+    }
+
+    .login-description {
+        padding: 75px;
+        ;
+    }
+
+    @media (min-width: 1025px) and (max-width: 1880px) {
+        .kt-login.kt-login--v1 .kt-login__aside {
+            width: 60%;
+        }
+
+    }
+
+    @media (min-width: 1023px) {
+        .kt-login__logo {
+            visibility: hidden;
+        }
+
+        .login-description {
+            padding: 75px;
+            ;
+        }
+    }
+
+    @media (max-width: 1023px) {
+        .login-description {
+            padding: 0;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .kt-login.kt-login--v1 .kt-login__aside {
+            background: #263238 url("../../../../assets/media/logos/logo-4.PNG") !important;
+              background-repeat: no-repeat;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    .login-image {
+        background-color: red($color: #000000);
+    }
+}

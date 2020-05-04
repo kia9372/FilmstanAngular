@@ -1,0 +1,60 @@
+<span *ngIf="show">
+    <div class="toolbar col-md-12 col-sm-12 col-lg-12 col-xl-12 p-0">
+        <div class="topbar col-md-12 col-xl-12 col-sm-12 col-xl-12 col-lg-12">
+            <div class="detail-title">
+                <label>نمایش</label>
+            </div>
+            <span>
+                <i (click)="close()" class="fas fa-times"></i>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 p-0 prev">
+        <!-- Video Show -->
+        <div *ngIf="data.type===1">
+            <video autoplay controls>
+                <source src="{{data.src}}" type="video/mp4">
+                <source src="{{data.src}}" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div *ngIf="type===fileType[1]" id="video_bg">
+            <video controls autoplay>
+                <source src="{{data.src}}" type="video/mp4">
+                <source src="{{data.src}}" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <!-- PDF Show -->
+        <div *ngIf="data.type===0">
+            <a href="{{data.src}}" target="_blank"></a>
+        </div>
+        <div *ngIf="type==='text'">
+            <a href="{{data.src}}" target="_blank"></a>
+        </div>
+        <!-- Sound Show -->
+        <div *ngIf="data.type===2">
+            <audio controls>
+                <source src="{{data.src}}" type="audio/ogg">
+                <source src="{{data.src}}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div *ngIf="type===fileType[2]" id="sound_bg">
+            <audio controls autoplay>
+                <source src="{{data.src}}" type="audio/mp3">
+            </audio>
+        </div>
+        <!-- Image Show -->
+        <div *ngIf="data.type===3">
+            <div class="img col-md-12 col-xl-12 col-sm-12 col-xl-12 p-0">
+                <img src="{{data.src}}" class=" float-left" alt="...">
+            </div>
+        </div>
+        <div *ngIf="type===fileType[3]">
+            <div class="img col-md-12 col-xl-12 col-sm-12 col-xl-12 p-0">
+                <img src="{{data.src}}" class=" float-left" alt="...">
+            </div>
+        </div>
+    </div>
+</span>

@@ -1,0 +1,114 @@
+<div class="form-container">
+  <div class="from-label">
+    <mat-label>{{ "CATEGORY_MANAGER.ADD_NEW_CATEGORY" | translate }}</mat-label>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="form-child">
+    <form class="form" [formGroup]="addUserFG">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "USER_MANAGER.NAME" | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          placeholder="pat@example.com"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "USER_MANAGER.FAMILY" | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="family"
+          placeholder="pat@example.com"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "USER_MANAGER.USER_NAME" | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="username"
+          placeholder="pat@example.com"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "USER_MANAGER.PASSWORD" | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          placeholder="pat@example.com"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "USER_MANAGER.CONFIRM_PASSWORD" | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="confirmPassword"
+          placeholder="pat@example.com"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "USER_MANAGER.PHONE_NUMBER" | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="phoneNumber"
+          placeholder="pat@example.com"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "USER_MANAGER.EMAIL" | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          placeholder="pat@example.com"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <!--photo upload-->
+      <mat-form-field class="upload_file" appearance="outline">
+        <mat-icon matSuffix>image</mat-icon>
+        <mat-label>{{ "USER_MANAGER.IMAGE" | translate }}</mat-label>
+        <ngx-mat-file-input
+          formControlName="photo"
+        >
+        </ngx-mat-file-input>
+      </mat-form-field>
+
+      <!-- file upload progressbar -->
+      <ng-container *ngIf="queueProgress > 0">
+        <mat-progress-bar
+          mode="determinate"
+          [value]="queueProgress"
+        ></mat-progress-bar>
+        <span matSuffix> Uploading: {{ queueProgress }}% </span>
+      </ng-container>
+    </form>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="from-button-row">
+    <button (click)="RegisterUser()" mat-flat-button color="primary">
+      {{ "GENERAL.SAVE" | translate }}
+    </button>
+    <button mat-stroked-button color="primary">
+      {{ "GENERAL.RESET" | translate }}
+    </button>
+    <button
+      mat-stroked-button
+      color="primary"
+      [routerLink]="['/category-manager']"
+    >
+      {{ "GENERAL.BACK" | translate }}
+    </button>
+  </div>
+</div>

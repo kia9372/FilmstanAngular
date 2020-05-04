@@ -1,0 +1,28 @@
+<div class="form-container">
+  <mat-tab-group dynamicHeight>
+    <mat-tab [label]="'USER_MANAGER.USER_PUBLIC_INFO_EDIT' | translate">
+      <ng-template matTabContent>
+        <kt-change-public-use-rinfo
+          [userDate]="data"
+        ></kt-change-public-use-rinfo>
+      </ng-template>
+    </mat-tab>
+    <mat-tab [label]="'USER_MANAGER.EDIT_PASSWORD' | translate">
+      <ng-template matTabContent
+        ><kt-change-password-user [userDate]="data"></kt-change-password-user>
+      </ng-template>
+    </mat-tab>
+    <mat-tab [label]="'USER_MANAGER.CHANGE_PHONE_NUMBER' | translate">
+      <ng-template matTabContent
+        ><kt-change-phone-number-user
+          [userDate]="data"
+        ></kt-change-phone-number-user>
+      </ng-template>
+    </mat-tab>
+    <mat-tab [label]="'USER_MANAGER.CHANGE_USER_ROLE' | translate">
+      <ng-template matTabContent
+        ><kt-change-user-role [userDate]="data"></kt-change-user-role>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

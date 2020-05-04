@@ -1,0 +1,23 @@
+<mat-form-field appearance="outline" (click)="onChanged()">
+    <mat-label>{{formTitle| translate}} <label *ngIf="showStar">*</label></mat-label>
+    <mat-select #metSelect [disabled]="disabled" [(ngModel)]="selectedOption" [(value)]="ItemId"
+     [compareWith]="compareCategoryObjects">
+
+        <mat-progress-bar *ngIf="loading" class="mb-2" mode="indeterminate"></mat-progress-bar>
+        <mat-option *ngIf="kolanNotall" selected value="all" (click)="emitdata(null)">
+            {{placeHolder | translate}}
+        </mat-option>
+        <mat-option (click)="emitdata(item.key)" *ngFor="let item of values | searchInput : searchText" [value]="item.key">
+            {{item.value}}
+        </mat-option>
+    </mat-select>
+    <mat-label *ngIf="isLessonsLoading">
+        <div class="select-placeholder-container">
+            <span></span>
+            <mat-spinner class="spinner" diameter="20"></mat-spinner>
+        </div>
+    </mat-label>
+</mat-form-field>
+<mat-error class="mat-error" *ngIf="(showError && validation)">
+    {{ 'COURSE.VALIDATIONS.REQUIRED.COURSE_ID' | translate }}
+</mat-error>

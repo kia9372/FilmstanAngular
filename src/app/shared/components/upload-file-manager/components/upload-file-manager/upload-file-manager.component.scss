@@ -1,0 +1,249 @@
+.add-Item {
+    padding: 5px;
+}
+
+#formUploadContainer {
+    width: 100%;
+}
+
+.mat-tab-body-wrapper {
+    margin-top: 10px !important;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newInputColor {
+    color: rgba(0, 0, 0, .87) !important;
+}
+
+.mg-t-m-5 {
+    margin-top: -4px !important;
+}
+
+i {
+    cursor: pointer;
+}
+
+.remove i {
+    cursor: pointer;
+    color: red;
+    font-size: 31px;
+}
+
+.mainUpload {
+    margin-right: 17px;
+}
+
+.uploadBtn button {
+    min-width: min-content;
+}
+
+#textArea {
+    height: 77px;
+}
+
+.crateNewButton {
+    width: fit-content;
+}
+
+form {
+    width: 100%;
+}
+
+#upload {
+    color: #ffffff;
+    background-color: rgb(27, 146, 67);
+    transition: all 1s;
+}
+
+#upload:disabled {
+    color: #000000;
+    background-color: rgb(231, 231, 231);
+    transition: all 1s;
+}
+
+.titles {
+    color: #000000;
+    font-weight: 600;
+    margin-right: 0px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.buttonFiles {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-right: 17px;
+}
+
+.coverUpload i {
+    align-items: center;
+    display: flex;
+    padding-right: 14px;
+    padding-bottom: 13px;
+}
+
+.buttonFiles-button {
+    width: 100%;
+}
+
+.buttonFiles-button button {
+    width: 100%;
+}
+
+.uploadBtn button {
+    width: 95% !important;
+    margin-right: 5px;
+}
+
+.crateNewButton button {
+    width: 100%;
+}
+
+.showinMobile {
+    visibility: hidden;
+    height: 0;
+}
+
+#Video {
+    color: red;
+}
+
+#Picture {
+    color: darkblue;
+}
+
+@media (max-width: 785px) {
+    .info {
+        margin-bottom: 10px;
+    }
+    .crateNewButton {
+        width: 100% !important;
+    }
+    .WcrateNewButton {
+        width: 100%;
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+    .WcrateNewButton button {
+        width: 100%;
+    }
+    .showNotMobile {
+        visibility: hidden;
+        height: 0;
+    }
+    .showinMobile {
+        visibility: visible;
+        background-color: red($color: #000000);
+        height: inherit;
+    }
+    .accordion {
+        background-color: #eee;
+        color: #444;
+        height: 53px;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+        cursor: pointer;
+        padding: 18px;
+        text-align: right;
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    .accordion label {
+        font-size: 12px;
+    }
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
+    }
+    .accordion:after {
+        // content: '\002B';
+        color: #777;
+        font-weight: bold;
+        float: left;
+        margin-left: 5px;
+    }
+    .active:after {
+        // content: "\2212";
+    }
+    .mainUpload {
+        margin-right: 0 !important;
+    }
+    .panel {
+        padding: 0 10px;
+        background-color: white;
+        max-height: 0;
+        border: 1px solid #cccccc;
+        border-bottom-left-radius: 9px;
+        border-bottom-right-radius: 9px;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+    .postFileIcon {
+        width: 10%;
+        float: right;
+    }
+    .fileInfo {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #000000;
+    }
+    .fileInfo_Title {
+        width: 30%;
+    }
+    .fileInfo_content {
+        width: 70%;
+    }
+    .fileInfo label {
+        padding-right: 4px;
+    }
+    #fileInfo {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+    .titleFile {
+        width: 183px;
+    }
+    .mainUpload {
+        margin-right: 0 !important;
+    }
+    .coverUpload {
+        min-width: 217px;
+    }
+    .mainUpload {
+        min-width: 217px;
+    }
+    .buttonFiles {
+        margin-right: 10px;
+    }
+}
+
+.hideCover {
+    display: none !important;
+}
+
+.showCover {
+    display: flex;
+}
+
+.form-container {
+    display: flex;
+    width: 91%;
+    flex-flow: row wrap;
+    align-content: space-between;
+}
+
+.selectTypeFile {
+    min-width: 105px;
+}

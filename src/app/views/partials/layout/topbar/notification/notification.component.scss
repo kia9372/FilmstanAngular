@@ -1,0 +1,75 @@
+:host {
+  .hideNotifList {
+    display: none;
+  }
+
+  ::ng-deep {
+    ngb-tabset>.nav-tabs {
+      display: none;
+    }
+  }
+
+  .showMore {
+    width: 100%;
+    background-color: #0abb87;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    height: 40px;
+    align-items: center;
+  }
+
+  .notificationShow {
+    display: none;
+  }
+
+  .showMore label {
+    margin: 0;
+    color: #ffffff;
+  }
+
+  .showNotifList {
+    display: inline;
+  }
+
+  .hideNotifList {
+    display: none;
+  }
+
+  .markNewr {
+    background-color: red;
+    -webkit-animation-name: example;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 5s infinite;
+    /* Safari 4.0 - 8.0 */
+    animation: example 5s infinite;
+    animation-name: example;
+    animation-duration: 4s;
+  }
+
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes example {
+    from {
+      background-color: red;
+    }
+
+    to {
+      background-color: yellow;
+    }
+  }
+
+  /* Standard syntax */
+  @keyframes example {
+    from {
+      background-color: red;
+    }
+
+    to {
+      background-color: yellow;
+    }
+  }
+}
+
+#shel{
+  color:#696969 !important;
+}

@@ -1,0 +1,46 @@
+<div class="form-content">
+  <form class="form" id="financeSettingAddFormGroup" [formGroup]="smsSettingFg">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "SETTING.REFITER_BY_ADMIN" | translate }}</mat-label>
+      <mat-select formControlName="registerRoleByAdmin">
+        <mat-option *ngFor="let item of roleModel" [value]="item.id">
+          {{ item.name }}
+        </mat-option>
+      </mat-select>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "SETTING.REFITER_BY_USER" | translate }}</mat-label>
+      <mat-select formControlName="registerRoleByUser">
+        <mat-option *ngFor="let item of roleModel" [value]="item.id">
+          {{ item.name }}
+        </mat-option>
+      </mat-select>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "SETTING.SEND_CODE_VERIFICATION" | translate }}</mat-label>
+      <mat-select formControlName="sendCodeVerification">
+        <mat-option
+          *ngFor="let item of sendCode | enumToArray"
+          [value]="item">
+          {{ item }}
+        </mat-option>
+      </mat-select>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+  </form>
+</div>
+<div class="form-footer">
+  <button
+    mat-raised-button
+    form="financeSettingAddFormGroup"
+    type="submit"
+    color="primary"
+    (click)="saveSetting()"
+  >
+    {{ "GENERAL.SAVE" | translate }}
+  </button>
+
+  <button mat-stroked-button>{{ "GENERAL.RESET" | translate }}</button>
+</div>

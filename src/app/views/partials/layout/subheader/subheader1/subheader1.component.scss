@@ -1,0 +1,13 @@
+:host {
+  .kt-subheader__desc {
+    margin: 0;
+  }
+  .breadC {
+    margin-top: -78px;
+  }
+  @media (max-width: 769px) {
+    .breadC {
+      margin-top: 52px;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+.filter-container {
+    margin-bottom: 20px;
+    .mat-expansion-panel {
+        border: 1px solid #E4E5EB;
+        box-shadow: 0px 2px 4px 0px rgba(187, 191, 203, 0.25);
+        .mat-expansion-panel-header {
+            min-height: 67px !important;
+            height: 67px !important;
+            padding: 0 10px;
+            border-bottom: 1px solid #E4E5EB;
+            border-radius: 0;
+            // background-color: #fff !important;
+            background-color: rgba(249, 247, 247, 0.1) !important;
+            color: #7d7d7d !important;
+            .mat-expansion-panel-header-title {
+                font-size: 16px;
+                i {
+                    color: #7d7d7d;
+                    font-size: 20px;
+                    margin: 0 5px;
+                }
+            }
+            .mat-expansion-indicator {
+                margin-left: 8px;
+            }
+        }
+        .filter {
+            margin-top: 20px;
+            form {
+                flex-wrap: wrap;
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                width: 100%;
+                .custom-fil {
+                    width: 25%;
+                    padding-right: 6px;
+                }
+                >.mat-form-field,
+                >kt-user-mutli-select-search,
+                >kt-searchable-dropdown {
+                    display: inline-block;
+                    margin: 0.5%;
+                    @include media-breakpoint('gt-lg') {
+                        min-width: 19%;
+                        max-width: 19%;
+                    }
+                    @include media-breakpoint('lt-xl') {
+                        min-width: 19%;
+                        max-width: 19%;
+                    }
+                    @include media-breakpoint('lt-lg') {
+                        min-width: 32.333%;
+                        max-width: 32.333%;
+                    }
+                    @include media-breakpoint('lt-md') {
+                        min-width: 48%;
+                        max-width: 48%;
+                        margin: 1%;
+                    }
+                    @include media-breakpoint('lt-sm') {
+                        min-width: 98%;
+                        max-width: 98%;
+                        margin-bottom: 3%;
+                    }
+                }
+                .mat-form-field-wrapper {
+                    padding: 0px !important;
+                    margin: 2px 0 !important;
+                }
+                .mat-form-field {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

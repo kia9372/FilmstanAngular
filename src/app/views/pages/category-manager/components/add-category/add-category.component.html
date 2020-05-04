@@ -1,0 +1,45 @@
+<div class="form-container">
+  <div class="from-label">
+    <mat-label>{{ "CATEGORY_MANAGER.ADD_NEW_CATEGORY" | translate }}</mat-label>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="form-child">
+    <form [formGroup]="addCategoryFG">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "CATEGORY_MANAGER.NAME" | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          placeholder="pat@example.com"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "CATEGORY_MANAGER.PARENTID" | translate }}</mat-label>
+        <mat-select formControlName="parentId">
+          <mat-option *ngFor="let item of data" [value]="item.id">
+            {{ item.name }}
+          </mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+    </form>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="from-button-row">
+    <button (click)="addCategory()" mat-flat-button color="primary">
+      {{ "GENERAL.SAVE" | translate }}
+    </button>
+    <button mat-stroked-button color="primary">
+      {{ "GENERAL.RESET" | translate }}
+    </button>
+    <button
+      mat-stroked-button
+      color="primary"
+      [routerLink]="['/category-manager']"
+    >
+      {{ "GENERAL.BACK" | translate }}
+    </button>
+  </div>
+</div>

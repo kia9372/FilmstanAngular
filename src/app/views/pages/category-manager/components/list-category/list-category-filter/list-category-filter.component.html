@@ -1,0 +1,32 @@
+<div class="filter-container">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>search</mat-icon> {{ "GENERAL.SEARCH" | translate }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="filter">
+        <form [formGroup]="filtersForm">
+          <mat-form-field class="mat-form-field-fluid" appearance="outline">
+            <mat-label>{{ "ROLE_MANAGER.NAME" | translate }} </mat-label>
+            <input
+              matInput
+              formControlName="name"
+              [placeholder]="'ROLE_MANAGER.NAME' | translate"
+            />
+          </mat-form-field>
+        </form>
+        <div class="buttons">
+          <button
+            (click)="loadFilters()"
+            mat-raised-button
+            [disabled]="loading || filtersForm.invalid"
+            class="btn-filter-search">
+            {{ "GENERAL.SEARCH" | translate }}
+          </button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
